@@ -25,18 +25,18 @@ function groups_buddpress_compatibility_groups_created_group_pre( $group_id ) {
 
 	error_log(__FUNCTION__ . ' ' . var_export($args,true)); // @todo remove
 
-	$traces = debug_backtrace();
+	//$traces = debug_backtrace();
 	//error_log( __FUNCTION__. ' trace ... ' . var_export($traces,true) ); // @todo remove
-	if ( is_array( $traces ) ) {
-		foreach( $traces as $trace ) {
-			if ( isset( $trace['file'] ) ) {
-				if ( strpos( $trace['file'], 'class-groups-group.php' ) !== false ) {
-					$is_groups = true;
-					break;
-				}
-			}
-		}
-	}
+// 	if ( is_array( $traces ) ) {
+// 		foreach( $traces as $trace ) {
+// 			if ( isset( $trace['file'] ) ) {
+// 				if ( strpos( $trace['file'], 'class-groups-group.php' ) !== false ) {
+// 					$is_groups = true;
+// 					break;
+// 				}
+// 			}
+// 		}
+// 	}
 	if ( $is_groups ) {
 		global $groups_buddpress_compatibility;
 		$groups_buddpress_compatibility = true;
